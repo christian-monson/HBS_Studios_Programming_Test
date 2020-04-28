@@ -4,11 +4,19 @@ using System.IO;
 using Xunit;
 
 namespace Question2_CSV {
-	public class CSVTable_Tests {
+	public class SumAndMean_Tests {
 
 		private const string baseDir = "/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV/Tests/TestData";
 
-		private readonly CSVTable csvTable = new CSVTable();
+		private readonly SumAndMean sumAndMean = new SumAndMean();
+
+		[Fact]
+		public void SumColumn_Test() {
+			List<string> column = new List<string> { "1", "2" };
+			decimal sum = sumAndMean.SumColumn(column);
+			Assert.Equal(3, sum);
+		}
+
 
 		[Theory]
 		[MemberData(nameof(ValidTestData))]

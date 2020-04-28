@@ -71,42 +71,52 @@ namespace Question2_CSV {
 
 	public class CSVTable {
 
-        private List<string> headers = new List<string>();
-        private List<List<string>> records = new List<List<string>>();
-
+        private Dictionary<string, int> headerNameToIndex = new Dictionary<string, int>();
+		private List<string> headers = new List<string>();
         public List<string> Headers {
             get { return headers; }
 			set { headers = value; }
         }
-		public List<List<string>> Records {
+
+        private List<List<string>> records = new List<List<string>>();
+        public List<List<string>> Records {
             get { return records; }
 			set { records = value; }
 		}
 
 		public void Read(string filename) {
 
-            bool firstLine = true;
-
 			using (StreamReader streamReader = new StreamReader(filename)) {
+
+				bool firstLine = true;
 				while (streamReader.Peek() >= 0) {
 
-                    // Note: StreamReader.ReadLine() handles both unix ("\n") and windows ("\r\n") style newlines
-                    string line = streamReader.ReadLine();
+					// Note: StreamReader.ReadLine() handles both unix ("\n") and windows ("\r\n") style newlines
+					string line = streamReader.ReadLine();
 
-                    List<string> record = parseRecord(line);
+					List<string> record = parseRecord(line);
 
 					if (firstLine) {
-                        firstLine = false;
-                        headers = record;
-                        continue;
+						firstLine = false;
+						headers = record;
+						continue;
 					}
 					if (record.Count != headers.Count) {
-                        throw new InvalidDataException($"Mismatched Records: Header contains {headers.Count} fields, but encountered a record with {record.Count} fields.");
+						throw new InvalidDataException($"Mismatched Records: Header contains {headers.Count} fields, but encountered a record with {record.Count} fields.");
 					}
-                    records.Add(record);
+					records.Add(record);
 				}
 			}
 
+			CalculateHeaderNamesToIndex();
+		}
+
+		private void CalculateHeaderNamesToIndex() {
+			int index = -1;
+			foreach (string headerName in headers) {
+				index++;
+				headerNameToIndex[headerName] = index;
+			}
 		}
 
 		private List<string> parseRecord(string line) {
@@ -193,11 +203,33 @@ namespace Question2_CSV {
 
             return (indexOfStartOfNextField, data);
         }
-	}
 
-	//class CSV_Launcher {
-	//	static void Main(string[] args) {
-			
-	//	}
-	//}
+		// Return a list of the record entries that corrospond to the headerName
+		// (The header name  itself is excluded!)
+        public List<string> GetColumn(string headerName) {
+
+            int columnIndex = -1;
+			try {
+                columnIndex = headerNameToIndex[headerName];
+            } catch (KeyNotFoundException e) {
+                throw new KeyNotFoundException($"The CSVTable has no column named {headerName}");
+			}
+
+            return GetColumn(columnIndex);
+		}
+
+		// Return a list of the record entries in the columnIndex'th column
+		// (excluding the header name for this column.)
+		public List<string> GetColumn(int columnIndex) {
+			if (columnIndex >= headers.Count) {
+                throw new IndexOutOfRangeException($"The index {columnIndex} is larger than the number of columns in this CSVTable: {headers.Count}");
+			}
+
+            List<string> column = new List<string>();
+			foreach (List<string> record in records) {
+                column.Add(record[columnIndex]);
+			}
+            return column;
+		}
+	}
 }

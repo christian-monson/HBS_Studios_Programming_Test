@@ -1,15 +1,11 @@
-﻿<Properties StartupConfiguration="{2DB241CB-1EE5-4D3F-9E56-6555EE7DEDD7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Question2_CSV/Tests/CSVTable_Tests.cs">
+﻿<Properties StartupConfiguration="{C8038DAC-872E-4EC0-8A97-1343D3FF6B88}|Default">
+  <MonoDevelop.Ide.ItemProperties.Question2__CSV__brokenTests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Question2_CSV/Tests/SumAndMean_Tests.cs">
     <Files>
-      <File FileName="Question2_CSV/CSVTable.cs" Line="104" Column="171" />
-      <File FileName="Question2_CSV/Tests/CSVTable_Tests.cs" Line="159" Column="57" />
-      <File FileName="Question2_CSV/Tests/TestData/test_illegal_doubleQuoteInUnescapedField.csv" Line="1" Column="1" />
-      <File FileName="Question2_CSV/Tests/TestData/test_illegal_doubleQuoteNotEscapedInEscapedField.csv" Line="1" Column="1" />
-      <File FileName="Question2_CSV/Tests/TestData/test_illegal_doubleQuotesNotImmediatelyFollowedByComma.csv" Line="1" Column="1" />
-      <File FileName="Question2_CSV/Tests/TestData/test_illegal_doubleQuotesNotImmediatelyPrecededByComma.csv" Line="1" Column="1" />
-      <File FileName="Question2_CSV/Tests/TestData/test_illegal_unterminatedEscapedField.csv" Line="1" Column="1" />
-      <File FileName="Question1_DistanceToRect_Tests/DistanceToRect.cs" Line="1" Column="1" />
-      <File FileName="Question2_CSV/Tests/TestData/test_illegal_6_wrongNumberOfFields.csv" Line="1" Column="1" />
+      <File FileName="Question2_CSV/CSVTable.cs" Line="225" Column="151" />
+      <File FileName="Question2_CSV/Tests/CSVTable_Tests.cs" Line="188" Column="25" />
+      <File FileName="Question2_CSV/SumAndMean.cs" Line="56" Column="40" />
+      <File FileName="Question2_CSV/Tests/SumAndMean_Tests.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,8 +16,7 @@
             </Node>
             <Node name="Question2_CSV" expanded="True">
               <Node name="Tests" expanded="True">
-                <Node name="TestData" expanded="True" />
-                <Node name="CSVTable_Tests.cs" selected="True" />
+                <Node name="SumAndMean_Tests.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -30,11 +25,7 @@
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
           <Node name="HBSTest" expanded="True">
-            <Node name="Question2_CSV" expanded="True" selected="True">
-              <Node name="Question2_CSV" expanded="True">
-                <Node name="CSVTable_Tests" expanded="True" />
-              </Node>
-            </Node>
+            <Node name="Question2_CSV" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -48,7 +39,6 @@
   <Debugger.DebugSourceFolders>
     <String>/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV</String>
   </Debugger.DebugSourceFolders>
-  <MonoDevelop.Ide.ItemProperties.Question1__DistanceToRect__noTests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/Tests/CSVTable_Tests.cs" relfile="Question2_CSV_withTests/Tests/CSVTable_Tests.cs" line="16" column="1" />
