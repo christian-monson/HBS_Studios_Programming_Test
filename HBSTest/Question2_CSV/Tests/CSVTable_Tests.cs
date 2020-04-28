@@ -1,22 +1,25 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Xunit;
 
 namespace Question2_CSV {
 	public class CSVTable_Tests {
 
+		private const string baseDir = "/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV/Tests/TestData";
+
 		private readonly CSVTable csvTable = new CSVTable();
 
 		[Theory]
-		[MemberData(nameof(TestData))]
-		public void CSVParse_Test(List<List<string>> expected, string filename) {
+		[MemberData(nameof(ValidTestData))]
+		public void CSVParse_Test(string[][] expected, string filename) {
 			csvTable.Read(filename);
 			Assert.True(simpleTableMatchesCSVTable(expected, csvTable));
 		}
 
-		private bool simpleTableMatchesCSVTable(List<List<string>> expected, CSVTable csvTable) {
+		private bool simpleTableMatchesCSVTable(string[][] expected, CSVTable csvTable) {
 
-			if (expected.Count != csvTable.Records.Count+1) {
+			if (expected.Length != csvTable.Records.Count+1) {
 				return false;
 			}
 
@@ -32,7 +35,7 @@ namespace Question2_CSV {
 					csvTableRow = csvTable.Records[recordCounter];
 				}
 
-				if (expectedRow.Count != csvTableRow.Count) {
+				if (expectedRow.Length != csvTableRow.Count) {
 					return false;
 				}
 
@@ -51,55 +54,109 @@ namespace Question2_CSV {
 			return true;
 		}
 
-		public static IEnumerable<object[]> TestData() {
-			DistanceToRectCalculator.Rect test_rect = new DistanceToRectCalculator.Rect {
-				minX = 100f,
-				minY = 200f,
-				maxX = 300f,
-				maxY = 400f
-			};
+		public static IEnumerable<object[]> ValidTestData() {
 
-			// Test the 9 quadrants
-			yield return new object[] { 222.27f, 1f, 1f, test_rect };
-			yield return new object[] { 199f, 150f, 1f, test_rect };
-			yield return new object[] { 727.74f, 1000f, 1f, test_rect };
-			yield return new object[] { 99f, 1f, 250f, test_rect };
-			yield return new object[] { 0f, 150f, 250f, test_rect };
-			yield return new object[] { 700f, 1000f, 250f, test_rect };
-			yield return new object[] { 608.11f, 1f, 1000f, test_rect };
-			yield return new object[] { 600f, 150f, 1000f, test_rect };
-			yield return new object[] { 921.95f, 1000f, 1000f, test_rect };
+			string[][] simpleTable = { new string[] {"column1", "column2", "column3"},
+									   new string[] {"a", "b", "c"},
+									   new string[] {"d", "e", "f"},
+									   new string[] {"g", "h", "i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_1_normal.csv") };
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_2_doubleQuotesFirstLabel.csv") };
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_3_doubleQuotesMiddleLabel.csv") };
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_4_doubleQuotesFinalLabel.csv") };
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_5_doubleQuotesFirstField.csv") };
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_6_doubleQuotesMiddleField.csv") };
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_7_doubleQuotesFinalField.csv") };
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_8_doubleQuotesEverywhere.csv") };
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_9_newlineAtEnd.csv") };
 
-			// Test an "edge" case (lol)
-			yield return new object[] { 0f, 100f, 250f, test_rect };
+			simpleTable = new string[][]{ new string[] {"column1", "column,2", "column3"},
+										  new string[] {"a", "b", "c"},
+										  new string[] {"d", "e", "f"},
+										  new string[] {"g", "h", "i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_10_commaInLabel.csv") };
 
-			// Test a "corner" case (lol!!)
-			yield return new object[] { 0f, 100f, 200f, test_rect };
+			simpleTable = new string[][]{ new string[] {"column1", "column\"2", "column3"},
+										  new string[] {"a", "b", "c"},
+										  new string[] {"d", "e", "f"},
+										  new string[] {"g", "h", "i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_11_doubleQuotesInLabel.csv") };
 
-			// Test a point with a negative x coordinate
-			yield return new object[] { 200f, -100f, 250f, test_rect };
+			simpleTable = new string[][]{ new string[] {"column 1", "column 2", "column 3"},
+										  new string[] {"a", "b", "c"},
+										  new string[] {"d", "e", "f"},
+										  new string[] {"g", "h", "i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_12_spaceInHeader.csv") };
 
-			// Test a rectangle with negative positions
-			DistanceToRectCalculator.Rect test_rect2 = new DistanceToRectCalculator.Rect {
-				minX = -100f,
-				minY = 200f,
-				maxX = 300f,
-				maxY = 400f
-			};
-			yield return new object[] { 900f, -1000f, 250f, test_rect2 };
+			simpleTable = new string[][]{ new string[] {"column1", "column2", "column3"},
+										  new string[] {"a a", "b", "c"},
+										  new string[] {"d", "e e", "f"},
+										  new string[] {"g", "h", "i i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_13_spaceInField.csv") };
+
+			simpleTable = new string[][]{ new string[] {"", "column2", "column3"},
+										  new string[] {"a", "b", "c"},
+										  new string[] {"d", "e", "f"},
+										  new string[] {"g", "h", "i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_14_emptyHeaderField.csv") };
+
+			simpleTable = new string[][]{ new string[] {"column1", "column2", "column3"},
+										  new string[] {"", "b", "c"},
+										  new string[] {"d", "e", "f"},
+										  new string[] {"g", "h", "i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_15_emptyDataField.csv") };
+
+			simpleTable = new string[][]{ new string[] {"column1", "column2", "column3"},
+										  new string[] {"a", "b", "c"},
+										  new string[] {"d", "", "f"},
+										  new string[] {"g", "h", "i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_16_emptyMiddleDataField.csv") };
+
+			simpleTable = new string[][]{ new string[] {"column1", "column2", "column3"},
+										  new string[] {"a", "b", ""},
+										  new string[] {"d", "e", "f"},
+										  new string[] {"g", "h", "i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_17_emptyFinalDataField.csv") };
+
+			simpleTable = new string[][]{ new string[] {""},
+										  new string[] {""},
+										  new string[] {""},
+										  new string[] {""}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_18_emptyButWith4NewLines.csv") };
+
+			simpleTable = new string[][]{ new string[] {"column1", " column2 ", "column3"},
+										  new string[] {"a", "b", "c"},
+										  new string[] {"d", "e", "f"},
+										  new string[] {"g", "h", "i"}};
+			yield return new object[] { simpleTable, Path.Combine(baseDir, "test_19_spaceBeforeAndAfterLabel.csv") };
 		}
 
-		[Fact]
-		public void DistanceToRect_InvalidRect_Test() {
-			// minX larger than maxX, will fail in the Assert in DistanceToRect
-			DistanceToRectCalculator.Rect test_rect = new DistanceToRectCalculator.Rect {
-				minX = 1000f,
-				minY = 200f,
-				maxX = 300f,
-				maxY = 400f
-			};
+		[Theory]
+		[MemberData(nameof(InvalidTestData))]
+		public void CSVParse_Invalid_Test(string expectedMessage, string filename) {
+			Exception ex = Assert.Throws<InvalidDataException>( () => csvTable.Read(filename));
+			Assert.Equal(expectedMessage, ex.Message);
+		}
 
-			Exception ex = Assert.Throws<ArgumentException>(() => DistanceToRectCalculator.DistanceToRect(1f, 1f, ref test_rect));
+		public static IEnumerable<object[]> InvalidTestData() {
+
+			yield return new object[] { "A double-quote character ('\"') may not occur inside an unquoted field.",
+										Path.Combine(baseDir, "test_illegal_1_doubleQuoteInUnescapedField.csv")};
+
+			yield return new object[] { "Invalid CSV file. Unescaped double-quote character inside of a data field.",
+										Path.Combine(baseDir, "test_illegal_2_doubleQuoteNotEscapedInEscapedField.csv")};
+
+			yield return new object[] { "Invalid CSV file. Unescaped double-quote character inside of a data field.",
+										Path.Combine(baseDir, "test_illegal_3_doubleQuotesNotImmediatelyFollowedByComma.csv")};
+
+			yield return new object[] { "A double-quote character ('\"') may not occur inside an unquoted field.",
+										Path.Combine(baseDir, "test_illegal_4_doubleQuotesNotImmediatelyPrecededByComma.csv")};
+
+			yield return new object[] { "Invalid CSV file: Unmatched double-quote character.",
+										Path.Combine(baseDir, "test_illegal_5_unterminatedEscapedField.csv")};
+
+			yield return new object[] { "Mismatched Records: Header contains 3 fields, but encountered a record with 2 fields.",
+										Path.Combine(baseDir, "test_illegal_6_wrongNumberOfFields.csv")};
 		}
 	}
 }

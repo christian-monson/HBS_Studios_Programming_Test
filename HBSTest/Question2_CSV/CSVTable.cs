@@ -27,8 +27,11 @@ using System.IO;
  * that I implemented for this programming test. Note that in this grammar the following two
  * non-terminals are the data fields:
  *
- * escapped_data
+ * escaped_data
  * non_escaped_data
+ *
+ * But being careful to replace pairs of embedded double-quotes with a single double-quote character
+ * in escaped_data fields!
  *
  * 
  * Here's the BNF:
@@ -71,8 +74,14 @@ namespace Question2_CSV {
         private List<string> headers = new List<string>();
         private List<List<string>> records = new List<List<string>>();
 
-        public List<string> Headers { get; }
-		public List<List<string>> Records { get; }
+        public List<string> Headers {
+            get { return headers; }
+			set { headers = value; }
+        }
+		public List<List<string>> Records {
+            get { return records; }
+			set { records = value; }
+		}
 
 		public void Read(string filename) {
 
@@ -89,6 +98,10 @@ namespace Question2_CSV {
 					if (firstLine) {
                         firstLine = false;
                         headers = record;
+                        continue;
+					}
+					if (record.Count != headers.Count) {
+                        throw new InvalidDataException($"Mismatched Records: Header contains {headers.Count} fields, but encountered a record with {record.Count} fields.");
 					}
                     records.Add(record);
 				}
@@ -168,6 +181,7 @@ namespace Question2_CSV {
                         endOfDataIndex = index - 1; // minus 1 to account for '"'
                         indexOfStartOfNextField = index + 1;
                         data = line.Substring(startOfDataIndex, endOfDataIndex - startOfDataIndex);
+                        data = data.Replace("\"\"", "\"");  // Replace escaped pairs of double-quotes with a single double-quote character
                         break;
 					}
 					if (line[index]!='"') {
@@ -181,9 +195,9 @@ namespace Question2_CSV {
         }
 	}
 
-	class CSV_Launcher {
-		static void Main(string[] args) {
+	//class CSV_Launcher {
+	//	static void Main(string[] args) {
 			
-		}
-	}
+	//	}
+	//}
 }

@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{2DB241CB-1EE5-4D3F-9E56-6555EE7DEDD7}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Question2_CSV_withTests/Tests/CSVTable_Tests.cs">
+    <Files>
+      <File FileName="Question1_DistanceToRect_Tests/DistanceToRect.cs" Line="34" Column="114" />
+      <File FileName="Question1_DistanceToRect_Tests/Tests/DistanceToRect_Tests.cs" Line="3" Column="1" />
+      <File FileName="Question2_CSV_withTests/CSVTable.cs" Line="81" Column="58" />
+      <File FileName="Question2_CSV_withTests/Tests/CSVTable_Tests.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HBSTest" expanded="True">
+            <Node name="Question2_CSV" expanded="True">
+              <Node name="Tests" expanded="True">
+                <Node name="CSVTable_Tests.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="HBSTest" expanded="True">
+            <Node name="Question2_CSV_withTests" expanded="True">
+              <Node name="Question2_CSV" expanded="True">
+                <Node name="CSVTable_Tests" expanded="True">
+                  <Node name="CSVParse_Test(expected: [[&quot;column1&quot;, &quot;column2&quot;, &quot;column3&quot;], [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], [&quot;d&quot;, &quot;e&quot;, &quot;f&quot;], [&quot;g&quot;, &quot;h&quot;, &quot;i&quot;]], filename: &quot;TestData/test_normal.csv&quot;)" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Question1__DistanceToRect__noTests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

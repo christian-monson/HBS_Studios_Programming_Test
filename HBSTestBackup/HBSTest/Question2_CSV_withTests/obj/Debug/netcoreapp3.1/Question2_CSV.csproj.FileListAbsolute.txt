@@ -1,0 +1,9 @@
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/bin/Debug/netcoreapp3.1/Question2_CSV.deps.json
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/bin/Debug/netcoreapp3.1/Question2_CSV.dll
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/bin/Debug/netcoreapp3.1/Question2_CSV.pdb
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/obj/Debug/netcoreapp3.1/Question2_CSV.csproj.CoreCompileInputs.cache
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/obj/Debug/netcoreapp3.1/Question2_CSV.AssemblyInfoInputs.cache
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/obj/Debug/netcoreapp3.1/Question2_CSV.AssemblyInfo.cs
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/obj/Debug/netcoreapp3.1/Question2_CSV.dll
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/obj/Debug/netcoreapp3.1/Question2_CSV.pdb
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question2_CSV_withTests/obj/Debug/netcoreapp3.1/Question2_CSV.csprojAssemblyReference.cache

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Question1_DistanceToRect/1.0.0": {
+        "runtime": {
+          "Question1_DistanceToRect.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Question1_DistanceToRect/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

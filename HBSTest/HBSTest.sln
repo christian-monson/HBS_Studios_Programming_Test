@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Question1_DistanceToRect_noTests", "Question1_DistanceToRect\Question1_DistanceToRect_noTests.csproj", "{2DB241CB-1EE5-4D3F-9E56-6555EE7DEDD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Question2_CSV", "Question2_CSV\Question2_CSV.csproj", "{C8038DAC-872E-4EC0-8A97-1343D3FF6B88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Question2_CSV_brokenTests", "Question2_CSV_brokenTests\Question2_CSV_brokenTests.csproj", "{C8038DAC-872E-4EC0-8A97-1343D3FF6B88}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Question1_DistanceToRect", "Question1_DistanceToRect_Tests\Question1_DistanceToRect.csproj", "{D207003A-FF2D-46C9-A899-03A6432EB514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Question2_CSV", "Question2_CSV\Question2_CSV.csproj", "{B6F0EEC0-4026-4088-B895-FC21E16078C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,5 +27,9 @@ Global
 		{D207003A-FF2D-46C9-A899-03A6432EB514}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D207003A-FF2D-46C9-A899-03A6432EB514}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D207003A-FF2D-46C9-A899-03A6432EB514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6F0EEC0-4026-4088-B895-FC21E16078C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6F0EEC0-4026-4088-B895-FC21E16078C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6F0EEC0-4026-4088-B895-FC21E16078C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6F0EEC0-4026-4088-B895-FC21E16078C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
