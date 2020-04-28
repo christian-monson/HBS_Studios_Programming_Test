@@ -1,0 +1,12 @@
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/bin/Debug/netcoreapp3.1/Question1_DistanceToRect.deps.json
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/bin/Debug/netcoreapp3.1/Question1_DistanceToRect.runtimeconfig.json
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/bin/Debug/netcoreapp3.1/Question1_DistanceToRect.runtimeconfig.dev.json
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/bin/Debug/netcoreapp3.1/Question1_DistanceToRect.dll
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/bin/Debug/netcoreapp3.1/Question1_DistanceToRect.pdb
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/obj/Debug/netcoreapp3.1/Question1_DistanceToRect.csprojAssemblyReference.cache
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/obj/Debug/netcoreapp3.1/Question1_DistanceToRect.csproj.CoreCompileInputs.cache
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/obj/Debug/netcoreapp3.1/Question1_DistanceToRect.AssemblyInfoInputs.cache
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/obj/Debug/netcoreapp3.1/Question1_DistanceToRect.AssemblyInfo.cs
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/obj/Debug/netcoreapp3.1/Question1_DistanceToRect.dll
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/obj/Debug/netcoreapp3.1/Question1_DistanceToRect.pdb
+/Users/brackenfern/Christian/Professional/Interviews/HareBrainedSchemes/HBSTest/Question1_DistanceToRect/obj/Debug/netcoreapp3.1/Question1_DistanceToRect.genruntimeconfig.cache
